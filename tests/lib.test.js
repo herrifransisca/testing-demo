@@ -16,3 +16,18 @@ describe('absolute', () => {
     expect(result).toBe(0);
   });
 });
+
+describe('greet', () => {
+  // this test is too specific and can easily break
+  // it('should return the greeting message', () => {
+  //   const result = lib.greet('Herri');
+  //   expect(result).toBe('Welcome Herri');
+  // });
+
+  it('should return the greeting message', () => {
+    const result = lib.greet('Herri');
+    expect(result).toMatch(/Herri/);
+    //or
+    expect(result).toContain('Herri');
+  });
+});
