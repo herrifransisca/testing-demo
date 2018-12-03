@@ -55,3 +55,21 @@ describe('getCurrencies', () => {
     expect(result).toEqual(expect.arrayContaining(['EUR', 'USD', 'AUD']));
   });
 });
+
+describe('getProduct', () => {
+  it('should return the product with the given id', () => {
+    const result = lib.getProduct(1);
+
+    // compares the references of these objects in memory
+    // test failed, even though these 2 objects are identical, the both have these properties, id and price
+    // expect(result).toBe({ id: 1, price: 10 });
+
+    // too specific
+    // expect(result).toEqual({ id: 1, price: 10 }); // test passed
+
+    // ideal way
+    expect(result).toMatchObject({ id: 1, price: 10 });
+    // or
+    expect(result).toHaveProperty('id', 1);
+  });
+});
